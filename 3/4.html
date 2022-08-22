@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Обязательное задание.
 
 1. Необходимо вывести в консоль массив продуктов в котором есть хоть одна
@@ -14,37 +16,61 @@
 начиная с самой маленькой, заканчивая самой большой ценой, после чего вывести
 отсортированный массив в консоль.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  const products = [
-    {
-      id: 3,
-      price: 127,
-      photos: [
-        "1.jpg",
-        "2.jpg",
-      ],
-    },
-    {
-      id: 5,
-      price: 499,
-      photos: [],
-    },
-    {
-      id: 10,
-      price: 26,
-      photos: [
-        "3.jpg",
-      ],
-    },
-    {
-      id: 8,
-      price: 78,
-    },
-  ];
+    const products = [
+      {
+        id: 3,
+        price: 127,
+        photos: [
+          "1.jpg",
+          "2.jpg",
+        ],
+      },
+      {
+        id: 5,
+        price: 499,
+        photos: [],
+      },
+      {
+        id: 10,
+        price: 26,
+        photos: [
+          "3.jpg",
+        ],
+      },
+      {
+        id: 8,
+        price: 78,
+      },
+    ];
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    // настрадался пока понял что надо проверить есть ли вообще параметр photos в объекте
+    console.log(products.filter(product => "photos" in product && product.photos.length > 0));
+
+    // По документации:
+    //     function compare(a, b) {
+    //   if (a меньше b по некоторому критерию сортировки) {
+    //     return -1;
+    //   }
+    //   if (a больше b по некоторому критерию сортировки) {
+    //     return 1;
+    //   }
+    //   // a должно быть равным b
+    //   return 0;
+    // }
+
+    console.log(products.sort((product1, product2) => {
+      if (product1.price < product2.price) {
+        return -1;
+      }
+      if (product1.price > product2.price) {
+        return 1;
+      }
+      return 0;
+    })); 
+  </script>
 </body>
+
 </html>
