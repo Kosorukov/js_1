@@ -45,6 +45,9 @@
     */
     const starsContainer = document.querySelector('.stars_container');
     starsContainer.addEventListener('mouseover', event => {
+      if (event.target.tagName !== 'I') {
+        return;
+      }
       let star = event.target;
       do {
         star.classList.add('golden');

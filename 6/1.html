@@ -60,6 +60,9 @@
      */
     document.body.addEventListener('click', (event) => {
       const btn = event.target;
+      if (btn.tagName !== 'BUTTON') {
+        return;
+      }
       event.target.textContent = "Добавлено";
       btn.setAttribute('disabled', true);
     });
